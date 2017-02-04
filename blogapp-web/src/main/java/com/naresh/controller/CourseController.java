@@ -1,5 +1,5 @@
 package com.naresh.controller;
-//controller mapping
+//controller  view
 import java.util.ArrayList;
 import java.util.List;
 
