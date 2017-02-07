@@ -2,6 +2,7 @@ package com.naresh.controller;
 
 import java.util.List;
 
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +31,7 @@ public class UserController {
 	
 	@GetMapping("/save")
 	public String signup(@RequestParam("userName") String name, @RequestParam("password") String password,
-			@RequestParam("emailId") String emailId, @RequestParam("roleId") int roleId) {
+			@RequestParam("emailId") String emailId, @RequestParam("roleId") int roleId, ModelMap modelMap) {
 		user.setName(name);
 		user.setPassword(password);
 		user.setEmailId(emailId);
@@ -39,21 +40,27 @@ public class UserController {
 		try {
 			userService.signup(user);
 		} catch (ServiceException e) {
-			e.printStackTrace();
+			modelMap.addAttribute("MESSAGE","Unable to register");
+			return "../Register.jsp";
+		}
+		catch (DuplicateKeyException e){
+			modelMap.addAttribute("MESSAGE","ALREADY EXISTS");
+			return "../Register.jsp";
 		}
 		return "../Register.jsp";
 	}
 
 	@GetMapping("/login")
 	public String login(@RequestParam("userName") String name, @RequestParam("password") String password
-		) {
+			, ModelMap modelMap) {
 		user.setName(name);
 		user.setPassword(password);
 		
 		try {
 			userService.login(user);
 		} catch (ServiceException e) {
-			e.printStackTrace();
+			modelMap.addAttribute("MESSAGE","Unable to login");
+			return "../Register.jsp";
 		}
 		return "../Article";
 	}

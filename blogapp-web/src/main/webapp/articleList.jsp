@@ -37,8 +37,11 @@
  Id:<input type="text" name="id">
  <button  type="submit">Submit</button></form>
  
-  <a href="../UpdateUser.jsp">Update</a>
- <a href="../DeleteUser.jsp">Delete</a>
- 
+  <a href="../UpdateUser.jsp">Update</a><br>
+ <a href="../DeleteUser.jsp">Delete</a><br>
+ <a href="../category">view category</a><br>
+ <a href="../newCategory.jsp">New Category</a><br>
+ <a href="../modifyCategory.jsp">update category</a><br>
+ <a href="../modifyCategory.jsp">delete Category</a>
 </body>
 </html>

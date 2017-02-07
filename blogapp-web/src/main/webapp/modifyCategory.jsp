@@ -7,25 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form  action="users/save">
-SIGNUP
-UserName:  <input type="text" name="userName" required />
+<form  action="../category/update">
+Update
+CategoryName:  <input type="text" name="categoryName" />
 <br>
-Password:  <input type="text" name="password" required/><br>
-emailId:  <input type="text" name="emailId" required /><br>
-RoleId:<input type="text" name="roleId" required/><br>
+Id:  <input type="text" name="id" /><br>
+UserId:  <input type="text" name="userId" /><br>
 <button  type="submit">Submit</button>
 </form>
-
-LOGIN
-<form  action="/Article">
-UserName:  <input type="text" name="userName" required/>
-<br>
-Password:  <input type="text" name="password" required/><br>
+<br><br>
+Delete
+<form  action="../category/delete">
+Id:  <input type="text" name="id" /><br>
 <button  type="submit">Submit</button>
 </form>
-<h4>${MESSAGE}</h4>
-
 
 </body>
 </html>
