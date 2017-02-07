@@ -42,6 +42,7 @@
  <a href="../category">view category</a><br>
  <a href="../newCategory.jsp">New Category</a><br>
  <a href="../modifyCategory.jsp">update category</a><br>
+  <a href="../comments.jsp">comments</a><br>
  <a href="../modifyCategory.jsp">delete Category</a>
 </body>
 </html>
