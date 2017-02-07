@@ -36,5 +36,9 @@
 	<form  action="../Article/myArticles">
  Id:<input type="text" name="id">
  <button  type="submit">Submit</button></form>
+ 
+  <a href="../UpdateUser.jsp">Update</a>
+ <a href="../DeleteUser.jsp">Delete</a>
+ 
 </body>
 </html>

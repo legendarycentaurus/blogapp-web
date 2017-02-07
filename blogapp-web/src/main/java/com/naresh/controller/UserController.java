@@ -57,6 +57,35 @@ public class UserController {
 		}
 		return "../Article";
 	}
-
+	
+	
+	@GetMapping("/update")
+	public String update(@RequestParam("userId") int id, @RequestParam("password") String password,
+		ModelMap modelMap) {
+		user.setId(id);
+		user.setPassword(password);
+		
+		try {
+			userService.update(user);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
+		List<User> list=userService.listParticularUser(id);
+		modelMap.addAttribute("updatedUser",list);
+		return "../UpdateUser.jsp";
+	}
+	@GetMapping("/delete")
+	public String delete(@RequestParam("userId") int id) {
+		user.setId(id);
+		
+		try {
+			userService.delete(user);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
+		
+		return "../Register.jsp";
+	}
+	
 
 }
