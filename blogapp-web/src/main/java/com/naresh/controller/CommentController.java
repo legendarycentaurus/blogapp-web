@@ -2,6 +2,7 @@ package com.naresh.controller;
 
 import java.util.List;
 
+import org.apache.commons.mail.EmailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,6 @@ public class CommentController {
 	CommentService cs=new CommentService();
 	@GetMapping("/listComments")
 	public String index(ModelMap modelMap, @RequestParam("id") int id){
-		System.out.println("UserController->index");
 		List<Comment> list = cs.list(id);
 		modelMap.addAttribute("Comments", list);
 		return "../comments.jsp";
@@ -53,6 +53,10 @@ public class CommentController {
 			cs.save(c);
 		} catch (ServiceException e) {
 			modelMap.addAttribute("delete", "Unable to Insert");
+			return "../comments.jsp";
+		}
+		catch (EmailException e) {
+			modelMap.addAttribute("delete", "Cannot send email ");
 			return "../comments.jsp";
 		}
 		modelMap.addAttribute("delete", "successfully Inserted");

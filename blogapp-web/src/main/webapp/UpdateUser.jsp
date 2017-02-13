@@ -9,9 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+${updatedUser}
 UPDATE USER CREDENTIALS<br>
 <form  action="/users/update">
-UserName:  <input type="text" name="userId" />
+UserName:  <input type="text" name="userName" />
 <br>
 Password:  <input type="text" name="password" /><br>
 <button  type="submit">Submit</button>
@@ -19,7 +20,7 @@ Password:  <input type="text" name="password" /><br>
 <table border="1">
 		<thead>
 			<tr>
-				<th>Sno</th>
+<!-- 				<th>Sno</th> -->
 				<th>User Id</th>
 				<th>User Name</th>
 				<th>Password</th>
@@ -28,16 +29,16 @@ Password:  <input type="text" name="password" /><br>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="c" items="${updatedUser}" varStatus="i">
+<%-- 			<c:forEach var="c" items="${updatedUser}" varStatus="i"> --%>
 				<tr>
-					<td>${i.index+1}</td>
-					<td>${c.id}</td>
-					<td>${c.name}</td>
-					<td>${c.password}</td>
-					<td>${c.emailId}</td>
-					<td>${c.roleId}</td>
+<%-- 					<td>${i.index+1}</td> --%>
+					<td>${updatedUser.id}</td>
+					<td>${updatedUser.name}</td>
+					<td>${updatedUser.password}</td>
+					<td>${updatedUser.emailId}</td>
+					<td>${updatedUser.roleId.id}</td>
 					</tr>
-			</c:forEach>
+<%-- 			</c:forEach> --%>
 		</tbody>
 	</table>
 

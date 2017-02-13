@@ -16,14 +16,10 @@ import com.nanda.service.ArticleService;
 @RequestMapping("/Article")
 public class ArticleController {
 
-	
-	private ArticleService articleService = new ArticleService();
-	private Article article=new Article();
-	
-	
 	@GetMapping
 	public String index(ModelMap modelMap){
-		
+		ArticleService articleService = new ArticleService();
+		Article article=new Article();
 		List<Article> list = articleService.list();
 		modelMap.addAttribute("Article_LIST", list);
 		return "articleList.jsp";
@@ -31,6 +27,8 @@ public class ArticleController {
 	
 	@GetMapping("/myArticles")
 	public String myArticles(ModelMap modelMap,@RequestParam("id") int id) {
+		ArticleService articleService = new ArticleService();
+		Article article=new Article();
 		List<Article> list=null;
 		try {
 			list = articleService.listMyArticle(id);

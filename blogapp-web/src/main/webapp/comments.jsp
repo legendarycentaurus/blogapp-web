@@ -9,7 +9,7 @@
 </head>
 <body>
 ${Comments}
-To List comments enter id
+To List comments from an specific article enter article id
 <form  action="/comments/listComments">
 id:  <input type="text" name="id" required/><br>
 <button  type="submit">Submit</button>

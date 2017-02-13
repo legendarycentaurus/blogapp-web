@@ -7,11 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-Enter a new Category<br>
-<form  action="/category/newCategory">
-CategoryName:  <input type="text" name="categoryName" />
-<br>
- <input type="Hidden" name="userId" value="${LOGGED_IN_USER.id}"/><br>
-<button  type="submit">Submit</button>
+<form  action="../articleCategory/delete">
+ID:<Input type="text" name="id" required palceholder="Enter a id "  /><br>
+<button type="submit">Submit</button>
+</form>
 </body>
 </html>

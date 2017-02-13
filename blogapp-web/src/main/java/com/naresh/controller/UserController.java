@@ -2,6 +2,8 @@ package com.naresh.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -39,6 +41,7 @@ public class UserController {
 		user.setRoleId(role);
 		try {
 			userService.signup(user);
+			
 		} catch (ServiceException e) {
 			modelMap.addAttribute("MESSAGE","Unable to register");
 			return "../Register.jsp";
@@ -52,32 +55,43 @@ public class UserController {
 
 	@GetMapping("/login")
 	public String login(@RequestParam("userName") String name, @RequestParam("password") String password
-			, ModelMap modelMap) {
+			, ModelMap modelMap,HttpSession session) {
 		user.setName(name);
 		user.setPassword(password);
 		
 		try {
-			userService.login(user);
+			Integer value=userService.login(user);
+			System.out.println(value);
+			if(value!=0){
+				User u=userService.listParticularUser(name);
+				modelMap.addAttribute("currentUser",u );
+				session.setAttribute("LOGGED_IN_USER", u);
+				return "../Article";
+			}
+			else{
+				modelMap.addAttribute("MESSAGE","Unable to login");
+				return "../Register.jsp";
+			}
 		} catch (ServiceException e) {
 			modelMap.addAttribute("MESSAGE","Unable to login");
 			return "../Register.jsp";
 		}
-		return "../Article";
 	}
 	
 	
 	@GetMapping("/update")
-	public String update(@RequestParam("userId") int id, @RequestParam("password") String password,
+	public String update(@RequestParam("userName") String name, @RequestParam("password") String password,
 		ModelMap modelMap) {
-		user.setId(id);
+		user.setName(name);
 		user.setPassword(password);
 		
 		try {
-			userService.update(user);
+			System.out.println(userService.update(user));
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
-		List<User> list=userService.listParticularUser(id);
+		User list=userService.listParticularUser(name);
+		System.out.println(list);
 		modelMap.addAttribute("updatedUser",list);
 		return "../UpdateUser.jsp";
 	}

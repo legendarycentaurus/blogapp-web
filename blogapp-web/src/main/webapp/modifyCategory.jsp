@@ -12,13 +12,13 @@ Update
 CategoryName:  <input type="text" name="categoryName" />
 <br>
 Id:  <input type="text" name="id" /><br>
-UserId:  <input type="text" name="userId" /><br>
+ <input type="hidden" name="userId" value="${LOGGED_IN_USER.id}" /><br>
 <button  type="submit">Submit</button>
 </form>
 <br><br>
 Delete
 <form  action="../category/delete">
-Id:  <input type="text" name="id" /><br>
+ Id:<input type="text" name="id" /><br>
 <button  type="submit">Submit</button>
 </form>
 

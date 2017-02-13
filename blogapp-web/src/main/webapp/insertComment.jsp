@@ -11,7 +11,7 @@
 
 ArticleId:  <input type="text" name="articleId" required />
 <br>
-UserId:  <input type="text" name="userId" required/><br>
+<input type="Hidden" name="userId" value="${LOGGED_IN_USER.id}"/><br>
 Comments:  <input type="text" name="comments" required /><br>
 <button  type="submit">Submit</button>
 </form>

@@ -7,11 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-Enter a new Category<br>
-<form  action="/category/newCategory">
-CategoryName:  <input type="text" name="categoryName" />
-<br>
- <input type="Hidden" name="userId" value="${LOGGED_IN_USER.id}"/><br>
+${Message}
+
+<form  action="../ratings/insertRatings">
+id:  <input type="text" name="articleId" required/><br>
+Rating:<input type="text" name="ratings" required/><br>
+<input type="hidden" name="userId" value="${LOGGED_IN_USER.id}"/>
 <button  type="submit">Submit</button>
 </body>
 </html>

@@ -9,6 +9,6 @@
 <body>
 <form  action="/comments/deleteComments">
 id:  <input type="text" name="id" required/><br>
-<button  type="submit">Submit</button></form>>
+<button  type="submit">Submit</button></form>
 </body>
 </html>
