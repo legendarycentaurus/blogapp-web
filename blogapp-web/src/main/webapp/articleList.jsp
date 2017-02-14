@@ -67,8 +67,7 @@
 			<a href="../modifyCategory.jsp">update category</a><br> <a
 				href="../comments.jsp">comments</a><br> <a
 				href="../modifyCategory.jsp">delete Category</a><br>
-				 <a
-				href="../Ratings.jsp">ratings</a>
+				 <a href="../ratings?userId=${LOGGED_IN_USER.id}">ratings</a>
 		</div></div>
 	</div>
 </body>
