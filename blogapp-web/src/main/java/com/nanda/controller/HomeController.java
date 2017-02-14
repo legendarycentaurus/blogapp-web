@@ -1,4 +1,4 @@
-package com.nandacontroller;
+package com.nanda.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

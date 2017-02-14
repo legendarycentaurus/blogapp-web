@@ -1,4 +1,4 @@
-package com.nandacontroller;
+package com.nanda.controller;
 
 import java.util.List;
 
