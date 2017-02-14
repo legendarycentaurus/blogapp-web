@@ -71,5 +71,21 @@ public class RatingController {
 		modelMap.addAttribute("Message", "successfully updated");
 		return "../Ratings.jsp";
 	}
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam("id") int id,ModelMap modelMap)
+	{
+		Rating rating=new Rating();
+		RatingService ratingService=new RatingService();
+		rating.setId(id);
+		try {
+			ratingService.delete(rating);
+		} catch (ServiceException e) {
+			modelMap.addAttribute("Message", "Unable to Delete");
+			return "../ratings";
+		}
+		modelMap.addAttribute("Message", "successfully Deleted");
+		return "../Ratings.jsp";
+	}
 }
 

@@ -29,6 +29,8 @@ TO rate an article
 				<th>userId</th>
 				<th>ArticleId</th>
 				<th>Rating</th>
+				<th>Update</th>
+				<th>delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -46,6 +48,7 @@ TO rate an article
 					 <button type="submit">Submit</button>
 					</form>
 					</td>
+					<td><a href="../ratings/delete?id=${c.id}">Delete</a></td>
 				</tr>
 				<%--  </c:if> --%>
 			</c:forEach>
