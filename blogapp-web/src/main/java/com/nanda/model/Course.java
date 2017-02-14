@@ -1,4 +1,4 @@
-package com.naresh.model;
+package com.nanda.model;
 
 import lombok.Data;
 
