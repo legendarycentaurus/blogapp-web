@@ -25,7 +25,6 @@ public class UserController {
 	private Role role=new Role();
 	@GetMapping
 	public String index(ModelMap modelMap){
-		System.out.println("UserController->index");
 		List<User> list = userService.list();
 		modelMap.addAttribute("USER_LIST", list);
 		return "userlist.jsp";
